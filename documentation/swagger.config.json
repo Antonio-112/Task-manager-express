@@ -1,0 +1,41 @@
+{
+  "definition": {
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Swagger Ecommers API",
+      "version": "1.0.0",
+      "description": "an example for node course in Escalab Academy",
+      "termsOfService": "http://swagger.io/terms/",
+      "contact": {
+        "name": "Swagger API Team"
+      },
+      "license": {
+        "name": "none"
+      }
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000/api/v1",
+        "description": "Local server"
+      },
+      {
+        "url": "http://localhost:3000/api/v2",
+        "description": "Local server"
+      }
+    ],
+    "security": [{ "basic": [] }],
+    "components": {
+      "ApiKey": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "authToken"
+      }
+    }
+  },
+  "apis": [
+    "./routes/auth.js",
+    "./routes/products.js",
+    "./routes/categories.js",
+    "./routes/orders.js"
+  ]
+}

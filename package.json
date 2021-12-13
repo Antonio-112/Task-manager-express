@@ -1,0 +1,31 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "Task management api",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "nodemon server.js",
+    "start": "node server.js",
+    "start:mongo": "docker run --name escalab-mongo -p 27017:27017 mongo & sleep 5",
+    "stop:mongo": "docker stop escalab-mongo && docker rm escalab-mongo"
+  },
+  "author": "Antonio Aviles",
+  "license": "ISC",
+  "devDependencies": {
+    "morgan": "1.10.0",
+    "nodemon": "2.0.12",
+    "response-time": "2.3.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "8.2.0",
+    "express": "4.17.1",
+    "express-validator": "^6.13.0",
+    "mongoose": "5.10.2",
+    "slugify": "1.4.5",
+    "stripe": "8.104.0",
+    "swagger-jsdoc": "6.0.2",
+    "swagger-ui-express": "4.1.6",
+    "uniqueid": "1.0.0"
+  }
+}
