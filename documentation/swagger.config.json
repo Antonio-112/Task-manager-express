@@ -34,8 +34,7 @@
   },
   "apis": [
     "./routes/auth.js",
-    "./routes/products.js",
     "./routes/categories.js",
-    "./routes/orders.js"
+    "./routes/task.js"
   ]
 }

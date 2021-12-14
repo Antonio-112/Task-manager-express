@@ -1,8 +1,8 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-const { ObjectId } = mongoose.Schema.Types
+const {ObjectId} = mongoose.Schema.Types;
 
-const taskSchema = new mongoose.Schema ({
+const taskSchema = new mongoose.Schema({
   name: {
     type: String,
     trim: true,
@@ -14,34 +14,34 @@ const taskSchema = new mongoose.Schema ({
     type: String,
     unique: true,
     lowercase: true,
-    index: true
+    index: true,
   },
   description: {
     type: String,
     required: true,
     maxlength: 2000,
-    text: true
+    text: true,
   },
-   category: {
-     type: ObjectId,
-     ref: 'Category',
-   },
-   inProgress: {
-     type: String,
-     emun: ['Yes', 'No']
-   },
-   color: {
-     type: String,
-     emum: ['Black', 'Brown', 'Silver', 'White', 'Blue', 'Gray']
-   },
-   status: {
-     type: String,
-     default: 'Active',
-     enum: ['Active', 'Inactive']
-   },
+  category: {
+    type: ObjectId,
+    ref: 'Category',
+  },
+  inProgress: {
+    type: String,
+    emun: ['Yes', 'No'],
+  },
+  color: {
+    type: String,
+    emum: ['Black', 'Brown', 'Silver', 'White', 'Blue', 'Gray'],
+  },
+  status: {
+    type: String,
+    default: 'Active',
+    enum: ['Active', 'Inactive'],
+  },
 },
 {
-  timestamps: true
-})
+  timestamps: true,
+});
 
-module.exports = mongoose.model('Task', taskSchema)
+module.exports = mongoose.model('Task', taskSchema);
