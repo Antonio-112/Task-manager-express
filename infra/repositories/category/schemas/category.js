@@ -1,4 +1,6 @@
+/* eslint-disable max-len */
 const mongoose = require('mongoose');
+const {ObjectId} = mongoose.Schema;
 
 categorySchema = new mongoose.Schema({
   name: {
@@ -17,11 +19,16 @@ categorySchema = new mongoose.Schema({
   description: {
     type: String,
     trim: true,
+    required: true,
     maxlength: [128, 'Description must be at most 128 characters long'],
   },
   priority: {
     type: Number,
     default: 0,
+  },
+  createdBy: {
+    type: ObjectId,
+    ref: 'User',
   },
 },
 {

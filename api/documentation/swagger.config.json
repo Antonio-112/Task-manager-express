@@ -2,12 +2,13 @@
   "definition": {
     "openapi": "3.0.0",
     "info": {
-      "title": "Swagger Ecommers API",
+      "title": "API Task manager node",
       "version": "1.0.0",
-      "description": "an example for node course in Escalab Academy",
+      "description": "Information about task manager project for nodejs Escalab course",
       "termsOfService": "http://swagger.io/terms/",
       "contact": {
-        "name": "Swagger API Team"
+        "name": "Antonio Aviles",
+        "email": "antonio.alexander.a10@gmail.co"
       },
       "license": {
         "name": "none"
@@ -16,10 +17,10 @@
     "servers": [
       {
         "url": "http://localhost:3000/api/v1",
-        "description": "Local server"
+        "description": "Development Server"
       }
     ],
-    "security": [{ "basic": [] }],
+    "security": [{ "bearerAuth": [] }],
     "components": {
       "ApiKey": {
       "type": "apiKey",
@@ -28,9 +29,5 @@
       }
     }
   },
-  "apis": [
-    "./routes/auth.js",
-    "./routes/categories.js",
-    "./routes/task.js"
-  ]
+  "apis": ["./api/routes/*.js"]
 }

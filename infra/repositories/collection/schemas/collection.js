@@ -1,12 +1,18 @@
+/* eslint-disable max-len */
 const mongoose = require('mongoose');
 const {ObjectId} = mongoose.Schema;
 
-collectionSchema = new mongoose.Schema({
+const collectionSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
     trim: true,
     unique: true,
+  },
+  slug: {
+    type: String,
+    lowercase: true,
+    index: true,
   },
   description: {
     type: String,
@@ -16,7 +22,6 @@ collectionSchema = new mongoose.Schema({
   category: {
     type: ObjectId,
     ref: 'Category',
-    required: true,
   },
   tasks: [{
     type: ObjectId,
@@ -39,4 +44,5 @@ collectionSchema = new mongoose.Schema({
   timestamps: true,
 });
 
-module.exports = mongoose.model('collection', collectionSchema);
+module.exports = mongoose.model('Collection', collectionSchema);
+

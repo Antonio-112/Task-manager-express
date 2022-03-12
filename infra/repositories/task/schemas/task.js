@@ -7,12 +7,12 @@ const taskSchema = new mongoose.Schema({
     type: String,
     trim: true,
     required: 'Name is required',
+    minlength: [2, 'Name must be at least 2 characters long'],
     maxlength: [32, 'Name must be at most 20 characters long'],
     text: true,
   },
   slug: {
     type: String,
-    unique: true,
     lowercase: true,
     index: true,
   },
@@ -26,12 +26,22 @@ const taskSchema = new mongoose.Schema({
     type: ObjectId,
     ref: 'Category',
   },
+  collectionId: {
+    type: ObjectId,
+    ref: 'Collection',
+  },
+  createdBy: {
+    type: ObjectId,
+    ref: 'User',
+  },
   inProgress: {
     type: String,
+    default: 'No',
     emun: ['Yes', 'No'],
   },
   color: {
     type: String,
+    default: 'white',
     emum: ['Black', 'Brown', 'Silver', 'White', 'Blue', 'Gray'],
   },
   status: {

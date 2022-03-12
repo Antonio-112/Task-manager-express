@@ -17,16 +17,17 @@ const userSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    maxlength: 100,
+    maxlength: 30,
   },
   lastname: {
     type: String,
     required: true,
-    maxlength: 100,
+    maxlength: 30,
   },
   role: {
     type: String,
-    default: 'subscriber',
+    enum: ['user', 'admin'],
+    default: 'user',
   },
   image: {
     type: String,
@@ -41,6 +42,14 @@ const userSchema = new mongoose.Schema({
   collections: [{
     type: ObjectId,
     ref: 'Collection',
+  }],
+  categories: [{
+    type: ObjectId,
+    ref: 'Category',
+  }],
+  tasks: [{
+    type: ObjectId,
+    ref: 'Task',
   }],
 },
 {

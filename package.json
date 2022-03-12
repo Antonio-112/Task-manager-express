@@ -1,33 +1,47 @@
 {
-  "name": "node",
+  "name": "task_management",
   "version": "1.0.0",
   "description": "Task management api",
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon server.js",
     "start": "node server.js",
-    "start:mongo": "docker run --name escalab-mongo -p 27017:27017 mongo & sleep 5",
+    "start:mongo": "docker run -d --name escalab-mongo -e  MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=admin -p 27018:27017 mongo",
+    "start:mongo2": "docker run -d --name escalab-mongo2 -p 27018:27017 mongo",
     "stop:mongo": "docker stop escalab-mongo && docker rm escalab-mongo"
   },
   "author": "Antonio Aviles",
   "license": "ISC",
   "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/morgan": "^1.9.3",
+    "@types/swagger-jsdoc": "^6.0.1",
+    "@types/swagger-ui-express": "^4.1.3",
     "eslint": "^8.4.1",
     "eslint-config-google": "^0.14.0",
-    "morgan": "1.10.0",
     "nodemon": "2.0.12",
     "response-time": "2.3.2"
   },
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "1.19.0",
+    "cloudinary": "1.23.0",
+    "cors": "2.8.5",
     "dotenv": "8.2.0",
-    "express": "4.17.1",
-    "express-validator": "^6.13.0",
-    "mongoose": "5.10.2",
+    "express": "^4.17.1",
+    "express-validator": "^6.14.0",
+    "firebase-admin": "9.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.1",
+    "morgan": "1.10.0",
+    "redis": "3.1.2",
     "slugify": "1.4.5",
     "stripe": "8.104.0",
-    "swagger-jsdoc": "6.0.2",
+    "swagger-jsdoc": "^6.0.2",
     "swagger-ui-express": "4.1.6",
     "uniqueid": "1.0.0"
+  },
+  "engines": {
+    "node": "17.6.0"
   }
 }
